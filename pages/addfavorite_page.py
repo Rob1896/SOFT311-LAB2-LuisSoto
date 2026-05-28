@@ -1,19 +1,25 @@
 from playwright.sync_api import Page
 
+
 class FavoritePage:
     def __init__(self, page: Page):
         self.page = page
-        self.wishlist_icon = page.locator('[data-testid="header-wishlist-icon"]')
 
     def add_to_favorites(self, product_alt: str):
-        # Encuentra el contenedor que tiene la imagen del producto específico
-        product_container = self.page.locator(
-            "div",
-            has=self.page.locator(f'img[alt="{product_alt}"]')
-        )
+        # Encuentra la imagen del producto
+        product_image = self.page.locator(f'img[alt="{product_alt}"]')
+
+        # Sube al contenedor padre del producto
+        product_container = product_image.locator("xpath=..")
+
         # Dentro de ese contenedor, busca el botón de favoritos
-        favorite_button = product_container.locator('button[data-testid="all-products-wishlist-button"]')
-        favorite_button.first.click()
+        favorite_button = product_container.locator('button[data-testid="all-products-wishlist-button"]').first
+        favorite_button.click()
 
     def go_to_favorites(self):
-        self.wishlist_icon.click()
+        # Click en el ícono del header que lleva a favoritos
+        self.page.locator('[data-testid="header-wishlist-icon"]').click()
+
+    def go_to_products(self):
+        # Regresar a la página de productos
+        self.page.goto("https://storedemo.testdino.com/products", wait_until="domcontentloaded")

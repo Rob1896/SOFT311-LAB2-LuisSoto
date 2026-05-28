@@ -1,7 +1,7 @@
 SOFT311-LAB2-LuisSoto
 Proyecto de automatización de pruebas E2E utilizando Python, Pytest y Playwright. Incluye Page Objects para las principales páginas de la aplicación y casos de prueba automatizados para registro, login, carrito y favoritos.
 
-📂 Estructura del proyecto
+Estructura del proyecto
 SOFT311-LAB2-LuisSoto/
 ├── pages/                  # Page Objects
 │   ├── home_page.py
@@ -9,6 +9,8 @@ SOFT311-LAB2-LuisSoto/
 │   ├── login_page.py
 │   ├── addproduct_page.py
 │   └── addfavorite_page.py
+├── screenshots/
+    ├── screenshots de los test
 ├── tests/                  # Casos de prueba
 │   ├── test_1_signup.py
 │   ├── test_2_login.py
@@ -17,6 +19,8 @@ SOFT311-LAB2-LuisSoto/
 │   └── test_5_favorite.py
 ├── pyproject.toml          # Configuración de dependencias
 └── README.md               # Documentación del proyecto
+└── report.html               # reporte de tests
+└── utils.py                   # helper para screenshots
 
 ⚙️ Instalación
 Clonar el repositorio:
@@ -65,3 +69,8 @@ Pytest
 
 Evidencia
 Se recomienda correr con --headed --slowmo para observar el flujo paso a paso.
+
+Screenshots
+en la carpeta de screenshots
+
+
